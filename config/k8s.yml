@@ -1,0 +1,25 @@
+# k8sHealth plugin configuration.
+kubeconfig: ""
+alarm:
+  enabled: true
+  interval: 3
+  # recovery alarms are delayed by this many minutes and cancelled on relapse
+  up-interval: 5
+# kube-vip floating IPs to ping; auto-detected from kube-vip pods when empty
+floating-ips: []
+ingress-floating-ips: []
+# nil/auto: detect the cert-manager namespace / kube-vip pods
+enable-cert-manager: null
+enable-kube-vip: null
+kubeconfig-cert:
+  enabled: true
+  warn-days: 30
+etcd-backup:
+  max-age-hours: 25
+eol:
+  enabled: true
+  warn-days: 180
+# namespaces checked for topology spread / replica count / image pull policy
+namespaces: []
+# check that master nodes carry the NoSchedule taint
+taint: false
