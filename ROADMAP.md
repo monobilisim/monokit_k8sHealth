@@ -32,5 +32,12 @@ Kubernetes health plugin. Feature parity with monokit1 `k8sHealth/`.
 - [ ] Master taint compliance check
 - [ ] RKE2 info + version news on change (master nodes only)
 - [ ] Orphaned alarm cleanup for deleted pods/containers
-- [ ] Alarm interval + recovery window (up-interval) handling
+- [ ] Alarm interval + recovery window (`alarm.interval` / `alarm.up_interval`) handling —
+      needs the per-call interval override in lib
+- [ ] `alarm.enabled` master switch that gates every alarm the plugin raises
+- [ ] Cluster name resolution: config override, else derived from the monokit identifier
+- [ ] Master-node detection via the API, used to gate the master-only checks
+      (etcd backup, RKE2 info/version news)
+- [ ] Health summary box output (depends on the lib renderer)
+- [ ] Health data POST to the server API (depends on base client/server API)
 - [ ] Continuous mode alongside one-shot mode with cron?
